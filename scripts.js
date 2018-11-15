@@ -11,4 +11,31 @@ const skipButtons = player.querySelectorAll('[data-skip');
 
 /* Build our functions */
 
+function togglePlay() {
+  /* Conditional Ternary Operator Method */
+
+  // const method = video.pause ? 'play' : 'pause';
+  // video[method]();
+  
+  if (video.paused) {
+    video.play();
+  } else {
+    video.pause();
+  }
+}
+
+function updateButton() {
+  const icon = this.paused ? '►' : '❚ ❚';
+  toggle.textContent = icon;
+  console.log(icon);
+}
 /* Hook up the event listeners */
+
+video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
+
+toggle.addEventListener('click', togglePlay);
+
+
+
